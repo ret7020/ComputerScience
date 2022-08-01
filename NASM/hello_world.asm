@@ -5,7 +5,6 @@ _start:             ;in point for linker
    mov  edx, len     ;message length
    mov  ecx, msg     ;message to write
    call print
-   xor exit_code, exit_code
    call exit
 
 ;|Input:
@@ -27,4 +26,4 @@ section .data
 msg db 'Hello, world!', 0xa  ;string for print
 ;msg times 10 db "*" ; 10 symbols of '*' (******....)
 len equ $ - msg     ;string length
-exit_code = 1
+exit_code equ 0 ; final status code after app finish execution
