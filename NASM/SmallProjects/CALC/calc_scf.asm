@@ -40,12 +40,13 @@ _mul:
     jmp _start
     
 _div:
-    mov ax, [n]
-    mov bl, [k]
-    div bl
+    mov rax, [n]
+    mov rbx, [k]
+    div rbx
+    
 
     mov rdi, result 
-    mov rsi, ah
+    mov rsi, rax
     call printf
     jmp _start
 
@@ -85,6 +86,9 @@ _start:
 
     cmp rcx, 2
     je _mul
+
+    cmp rcx, 3
+    je _div
       
 section .bss
     n resb 5
